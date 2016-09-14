@@ -1,5 +1,5 @@
 html { 
-    background: url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg") no-repeat center center fixed; 
+    background-color: lightgrey; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,33 +7,33 @@ html {
 }
 
 body {
-    color: white;
+    color: black;
     background-color: transparent;
+    font-family: "Arial, Helvetica, sans-serif";
 }
 
 h1#app-name {
     font-size:84px;
+    margin-bottom: 60px;
 }
 
-button#refreshbtn {
-    display:none;
+div#query {
+    margin: auto;
+    max-width: 1500px;
 }
 
-h2#page-header {
-    padding-top:20px;
-    padding-bottom:20px;
+div#results {
+    margin-top: 40px;
+    text-transform: capitalize;
+    font-size: 24px;
+}
+
+input#place-query {
+    text-align: center;
 }
 
 body #page-container {
-    margin-top: 150px;
+    margin-top: 40px;
     text-align: center;
     margin-bottom: 40px;
-}
-
-.btn-wrapper {
-    padding: 20px 0;
-}
-
-input#my-file-selector {
-    display:none;
 }
