@@ -12,9 +12,12 @@ body {
     font-family: "Arial, Helvetica, sans-serif";
 }
 
-h1#app-name {
-    font-size:84px;
-    margin-bottom: 60px;
+h1 {
+    font-size: 54px;
+}
+
+div#title {
+    margin:auto;
 }
 
 div#query {

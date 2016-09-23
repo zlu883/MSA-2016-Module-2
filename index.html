@@ -18,22 +18,24 @@
 
 
     <div class="container" id="page-container">
-        <h1 id="app-name">
-            <span class="glyphicon glyphicon-compass"></span> PointWeather
-        </h1>
+        <div class="text-center" id="title">
+            <h1>
+                PointWeather
+            </h1>
+        </div>
         <!-- NB: glyphicon halflings are generally not free, but the developer made them free in bootstrap -->
-        
+
         <form class="form-inline">
             <div class="input-group" id="query">
                 <input type="text" class="form-control" id="place-query" onchange="locationChange()">
                 <button type="button" class="btn btn-default" id="get-weather">Get Weather!</button>
             </div>
         </form>
-        <div id="results">
+        <div class="text-center" id="results">
             <p>
-                Weather: <span id="weather"></span> <img src="http://openweathermap.org/img/w/02n.png" id="weatherImg">
+                Weather: <span id="weather"></span> <img src="" id="weatherImg">
             </p>
-            <p >
+            <p>
                 High: <span id="maxTemp"></span>&deg;C
             </p>
             <p>
@@ -49,15 +51,15 @@
 
     <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" href="./css/alertify.core.css" />
-    <link rel="stylesheet" href="./css/alertify.default.css" />
+    <link rel="stylesheet" href="./node_modules/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="./node_modules/alertifyjs/css/themes/default.min.css" />
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB9HLdvg9F-P5pff39WFvLU17127W6MWxU&amp;libraries=places"></script>
     <script src="./js/jquery.geocomplete.js"></script>
-    <script src="./js/alertify.min.js"></script>
+    <script src="./node_modules/alertifyjs/alertify.min.js"></script>
 
     <script src="./js/pointWeather.js"></script>
 </body>

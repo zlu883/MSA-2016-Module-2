@@ -2,7 +2,7 @@
 var pageheader = $("#page-header");
 var pagecontainer = $("#page-container");
 var getWeatherBtn = $("#get-weather");
-var geolocSuccess = false;
+var geolocSuccess: boolean = false;
 
 getWeatherBtn.on("click", function () {
     if ($("#place-query").val() === "") {
@@ -10,7 +10,8 @@ getWeatherBtn.on("click", function () {
     } else if (!geolocSuccess) {
         alertify.alert("The weather for your location is not available. Try something else?")
     } else {
-        getWeather();
+        var coord: GeoCoordinate = new GeoCoordinate($("#latitude").text(), $("#longitude").text());
+        getWeather(coord);
     }
 });
 
@@ -20,11 +21,20 @@ $("#place-query").geocomplete({ details: "#place-data" }).bind("geocode:result",
     geolocSuccess = true;
 });
 
-function getWeather() {
+class GeoCoordinate {
+    latitude: string;
+    longitude: string;
+    constructor(lat: string, long:string) { 
+        this.latitude = lat;
+        this.longitude = long;
+    }
+}
+
+function getWeather(geoCoordinate: GeoCoordinate) {
     var url = "http://api.openweathermap.org/data/2.5/weather?";
-    url = url + "lat=" + $("#latitude").text();
+    url = url + "lat=" + geoCoordinate.latitude;
     url = url + "&";
-    url = url + "lon=" + $("#longitude").text();
+    url = url + "lon=" + geoCoordinate.longitude;
     url = url + "&units=metric&APPID=4dce0ac8bf53858e36f243d5ba23a49d";
     var imgUrl;
     $.getJSON(url, function (result, status) {

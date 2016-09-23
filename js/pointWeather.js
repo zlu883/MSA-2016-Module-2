@@ -11,18 +11,26 @@ getWeatherBtn.on("click", function () {
         alertify.alert("The weather for your location is not available. Try something else?");
     }
     else {
-        getWeather();
+        var coord = new GeoCoordinate($("#latitude").text(), $("#longitude").text());
+        getWeather(coord);
     }
 });
 $("#place-data").hide();
 $("#place-query").geocomplete({ details: "#place-data" }).bind("geocode:result", function (event, result) {
     geolocSuccess = true;
 });
-function getWeather() {
+var GeoCoordinate = (function () {
+    function GeoCoordinate(lat, long) {
+        this.latitude = lat;
+        this.longitude = long;
+    }
+    return GeoCoordinate;
+}());
+function getWeather(geoCoordinate) {
     var url = "http://api.openweathermap.org/data/2.5/weather?";
-    url = url + "lat=" + $("#latitude").text();
+    url = url + "lat=" + geoCoordinate.latitude;
     url = url + "&";
-    url = url + "lon=" + $("#longitude").text();
+    url = url + "lon=" + geoCoordinate.longitude;
     url = url + "&units=metric&APPID=4dce0ac8bf53858e36f243d5ba23a49d";
     var imgUrl;
     $.getJSON(url, function (result, status) {
